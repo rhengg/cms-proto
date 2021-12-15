@@ -6,7 +6,9 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"directus": "npx directus start",
-		"start": "npx nodemon --exec \"npx directus start \" "
+		"start": "npx nodemon --exec \"npx directus start \" ",
+		"start:db": "docker run -d -v pgdata:/var/lib/postgresql/data -it --rm --name pg-docker -e POSTGRES_PASSWORD=docker -p 5432:5432 postgres:10",
+		"stop:db": "docker kill pg-docker"
 	},
 	"keywords": [],
 	"author": "",
