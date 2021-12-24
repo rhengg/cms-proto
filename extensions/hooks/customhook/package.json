@@ -13,9 +13,11 @@
 		"host": "^9.2.2"
 	},
 	"scripts": {
-		"build": "directus-extension build"
+		"build": "directus-extension build",
+		"watch": "nodemon --watch src --exec \" npm run build \" "
 	},
 	"devDependencies": {
-		"@directus/extensions-sdk": "9.2.2"
+		"@directus/extensions-sdk": "9.2.2",
+		"nodemon": "^2.0.15"
 	}
 }
