@@ -1,0 +1,24 @@
+{
+	"name": "directus-extension-custom-upload-s3",
+	"version": "1.0.0",
+	"keywords": [
+		"directus",
+		"directus-extension",
+		"directus-custom-interface"
+	],
+	"directus:extension": {
+		"type": "interface",
+		"path": "./index.js",
+		"source": "src/index.js",
+		"host": "^9.4.0"
+	},
+	"scripts": {
+		"build": "directus-extension build",
+		"watch": "nodemon --watch src --exec \" npm run build \" "
+	},
+	"devDependencies": {
+		"@directus/extensions-sdk": "9.4.0",
+		"nodemon": "^2.0.15",
+		"vue": "^3.2.26"
+	}
+}

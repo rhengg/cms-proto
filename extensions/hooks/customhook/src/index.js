@@ -20,21 +20,28 @@ export default (
 	{ filter },
 	{ services, exceptions, database, getSchema, env, logger, emitter }
 ) => {
-	filter(
-		"movies.items.create",
-		async (input, { collection }, { schema, database }) => {
-			const deliveryUrls = createVideoDeliveryUrls(input.movie_raw);
+	// filter(
+	// 	"movies.items.create",
+	// 	async (input, { collection }, { schema, database }) => {
+	// 		const deliveryUrls = createVideoDeliveryUrls(input.movie_raw);
 
-			return { ...input, movie_delivery_url: deliveryUrls };
-		}
-	);
+	// 		return { ...input, movie_delivery_url: deliveryUrls };
+	// 	}
+	// );
 
-	// filter("movies.items.update", input => {
-	// 	const suffix = process.env["AWS_OUTPUT_RESOLUTIONS_SUFFIX"];
-	// 	const suffixArray = suffix.split(",");
-	// 	console.log("check console for env vars", suffixArray);
-	// });
+	const { AssetsService, FilesService } = services;
+
+	filter("movies.items.update", input => {
+		console.log("Assets services", Object.keys(AssetsService));
+		console.log("Files services", FilesService);
+	});
 };
+
+// CUstom interface for choosing upload destination?
+// interface like image-scout
+// media thumbnails gallery field will use custom interface to handle file uploads to images bucket(diff from video asset bucket)
+
+//
 
 // field: movie_delivery_url
 /* 
