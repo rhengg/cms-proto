@@ -2,49 +2,49 @@
 -- PostgreSQL database cluster dump
 --
 
-SET default_transaction_read_only = off;
+-- SET default_transaction_read_only = off;
 
-SET client_encoding = 'UTF8';
-SET standard_conforming_strings = on;
+-- SET client_encoding = 'UTF8';
+-- SET standard_conforming_strings = on;
 
---
--- Drop databases
---
-
-
-
-
-
---
--- Drop roles
---
-
-DROP ROLE postgres;
-
-
---
--- Roles
---
-
-CREATE ROLE postgres;
-ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'md543225d7c19e7b7bd74e416fe9566a7f9';
+-- --
+-- -- Drop databases
+-- --
 
 
 
 
 
+-- --
+-- -- Drop roles
+-- --
 
---
--- Database creation
---
-
-REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
-GRANT CONNECT ON DATABASE template1 TO PUBLIC;
+-- DROP ROLE postgres;
 
 
-\connect postgres
+-- --
+-- -- Roles
+-- --
 
-SET default_transaction_read_only = off;
+-- CREATE ROLE postgres;
+-- ALTER ROLE postgres WITH SUPERUSER INHERIT CREATEROLE CREATEDB LOGIN REPLICATION BYPASSRLS PASSWORD 'md543225d7c19e7b7bd74e416fe9566a7f9';
+
+
+
+
+
+
+-- --
+-- -- Database creation
+-- --
+
+-- REVOKE CONNECT,TEMPORARY ON DATABASE template1 FROM PUBLIC;
+-- GRANT CONNECT ON DATABASE template1 TO PUBLIC;
+
+
+-- \connect postgres
+
+-- SET default_transaction_read_only = off;
 
 --
 -- PostgreSQL database dump
