@@ -27,6 +27,7 @@ jobs:
         IMAGE_TAG: ${{ github.sha }}
       run: |
         cd ../
+        ls -la
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
@@ -36,5 +37,7 @@ jobs:
         ECR_REPOSITORY: testdb
         IMAGE_TAG: ${{ github.sha }}
       run: |
+        cd ../
+        ls -la
         docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG -f Dockerfile.db .
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
