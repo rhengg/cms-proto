@@ -2,15 +2,15 @@ version: '3'
 services:
   database:
     container_name: database
-    image: postgres:10
-    volumes:
-      - ./data/database:/var/lib/postgresql/data
+    image: 050150565201.dkr.ecr.ap-south-1.amazonaws.com/testdb:latest
+    # volumes:
+    #   - ./data/database:/var/lib/postgresql/data
     networks:
       - directus
     environment:
-      POSTGRES_USER: 'directus'
-      POSTGRES_PASSWORD: 'directus'
-      POSTGRES_DB: 'directus'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'docker'
+      POSTGRES_DB: 'postgres'
 
   cache:
     container_name: cache
@@ -20,7 +20,7 @@ services:
 
   directus:
     container_name: directus
-    image: livzz/test-cms
+    image: 050150565201.dkr.ecr.ap-south-1.amazonaws.com/testcms:latest
     ports:
       - 8055:8055
     volumes:
@@ -44,9 +44,9 @@ services:
       DB_CLIENT: 'pg'
       DB_HOST: 'database'
       DB_PORT: '5432'
-      DB_DATABASE: 'directus'
-      DB_USER: 'directus'
-      DB_PASSWORD: 'directus'
+      DB_DATABASE: 'postgres'
+      DB_USER: 'postgres'
+      DB_PASSWORD: 'docker'
 
       CACHE_ENABLED: 'true'
       CACHE_STORE: 'redis'
@@ -54,10 +54,9 @@ services:
 
       ADMIN_EMAIL: 'admin@example.com'
       ADMIN_PASSWORD: 'admin09*&'
-
       # Make sure to set this in production
       # (see https://docs.directus.io/reference/environment-variables/#general)
       # PUBLIC_URL: 'https://directus.example.com'
 
 networks:
-  directus:
+  directus: null
